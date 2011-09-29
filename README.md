@@ -123,8 +123,12 @@ You can still interact directly with the video element itself:
     document.getElementById('my-video-tag').src = "some video source";
 
 
+Need Help?
+----------
+Direct your questions to ray@boxee.tv
+
+
 Recommended Reading
 -------------------
-
 http://diveintohtml5.org/video.html
 
