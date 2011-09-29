@@ -93,6 +93,36 @@ put this html directly after your video tag, at the same level in the DOM tree. 
         </div>
 
 
+API
+======
+
+All functions are called on the global FullScreenPlayer object.  There can only be one FullScreenPlayer on a page.
+
+    FullScreenPlayer.
+    
+        setVideoTitle(title : string) // Sets the title of the video in the overlay
+        
+        loadSrc(src : string) // sets the video's src attribute and tells it to start playing
+        
+        togglePause() // Pause/Unpause video.  Should be attached to the Enter key when in a leanback mode.
+        play() // play video
+        pause() // pause video
+
+        seekForward() // seeks forward by options.seekBy seconds.  Should be attached to the Right Arrow key.
+        
+        seekReverse() // seeks back by options.seekBy seconds.  Should be attached to the Left Arrow key.
+
+        seekTo(time) // 
+
+You can still interact directly with the video element itself:
+
+    // via FullScreenPlayer.video
+    FullScreenPlayer.video.src = "some video source";
+
+    // same as
+    document.getElementById('my-video-tag').src = "some video source";
+
+
 Recommended Reading
 -------------------
 
