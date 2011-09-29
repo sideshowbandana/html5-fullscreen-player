@@ -5,8 +5,11 @@ HTML5 Fullscreen Player controls
 
 Try it out
 -----------
-Example uses an mp4 video -- requires *chrome* or *safari* to get the video to load:
+
 http://boxee.github.com/html5-fullscreen-player/demo.html
+
+*note*: 
+the examples uses an mp4 video -- requires *chrome* or *safari* to view properly.
 
 
 Recommended Usage:
@@ -70,8 +73,9 @@ If you don't want the `body` tag's class names changed, specify a container elem
       container: $("#my-video-container")
     });
 
-The default options are:
 
+The default options are:
+------------------------
     options: {
       // debounce seeking so user can click seek forward multiple times and just take the result
       seekThreshold: 500, 
@@ -99,6 +103,9 @@ For best results, the video tag and its container should be the entire size of t
       top: 0px;
       left: 0px;
     }
+
+The HTML
+--------
 
 Unless you specify `options.buildHTML: false` the following HTML will be appended to the container element.  If you specify not to have it appended, you can add it manually.  You can override the styles for these elements to customize how your player looks.
 
