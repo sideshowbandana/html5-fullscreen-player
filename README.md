@@ -1,6 +1,8 @@
 HTML5 Fullscreen Player controls
 ================================
 
+*For a simple example, look at demo.html*
+
 To use it:
 ----------
   * use a <video> tag on your page
