@@ -131,6 +131,14 @@ window.FullScreenPlayer = {
     this.$container.find('.boxee-player-title-text').text(title);
   },
   
+  togglePause: function() {
+    if (this.isPaused()) {
+      this.play();
+    } else {
+      this.pause();
+    }
+  },
+  
   isPaused: function() {
     return this.video.paused;
   },

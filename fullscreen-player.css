@@ -4,6 +4,8 @@
   left: 0px;
   height: 100%;
   width: 100%;
+  
+  font-family: arial;
 }
 
 .boxee-progressbar-container {
@@ -41,6 +43,7 @@
 }
 
 .boxee-progressbar-elapsed-text, .boxee-progressbar-duration-text {
+  font-size: 30px;
   padding-top: 17px;
   color: #f8f8f8;
 }

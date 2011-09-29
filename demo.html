@@ -1,0 +1,102 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <title>html5-fullscreen-player Demo</title>
+  
+  <link rel="stylesheet" href="fullscreen-player.css">
+  <link rel="stylesheet" href="fullscreen-player-urls.css">
+  <style>
+    /* reset styles */
+    body, #video-container, video { 
+      margin: 0px;
+      padding: 0px;
+    }
+    
+    /* Have the video take up as much of the screen as it can */
+    video {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id='video-container'>
+    <video id='player'></video>
+    
+    <!-- Begin FullScreenPlayer HTML snippet -->
+    <div class='boxee-player-osd'>
+      <div class='boxee-player-title'>
+        <div class='boxee-player-title-text'></div>
+      </div>
+      <div class='boxee-seeking'>Loading</div>
+      <div class='boxee-progressbar-container'>
+        <div class='boxee-progressbar-elapsed-container'>
+          <div class='boxee-progressbar-elapsed-text'></div>
+        </div>
+        <div class='boxee-progressbar-duration-container'>
+          <div class='boxee-progressbar-duration-text'></div>
+        </div>
+        <div class='boxee-progressbar'>
+          <div class='boxee-progressbar-wrapper'>
+            <div class='boxee-progressbar-buffered'></div>
+            <div class='boxee-progressbar-position'></div>
+
+            <div class='boxee-scrubber-container'>
+              <div class='boxee-scrubber'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End FullScreenPlayer HTML snippet -->
+  </div>
+  
+  <!-- Place dependency script tags in page first: jQuery and underscore -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type='text/javascript' src='lib/underscore-min.js'></script>
+  
+  <!-- -->
+  <script type='text/javascript' src='fullscreen-player.js'></script>
+  
+  <script type='text/javascript'>
+    $(document).ready(function() {
+      // initialize the FullScreenPlayer
+      FullScreenPlayer.init({
+        container: $("#video-container")
+      });
+      
+      // data
+      var video = {
+        src: "http://feedproxy.google.com/~r/earth-touch_podcast_720p/~5/lh3k1dhm11I/PC3411_QT720_voice.mov",
+        title: 'HD weekly wildlife highlights, week 34 2011'
+      }
+      
+      // Set title and start playing the video
+      FullScreenPlayer.setVideoTitle(video.title);
+      FullScreenPlayer.loadSrc(video.src);
+      
+      // Have clicks toggle whether the osd is showing
+      $('body').click(function() {
+        $("#video-container").find('.boxee-player-osd').toggle();
+      });
+      
+      // Handle keypresses
+      $('body').keydown(function(e) {
+        var code = e.keyCode ? e.keyCode : e.which;
+        if (code == 37) { // Left Arrow
+          FullScreenPlayer.seekReverse();
+        } else if (code == 39) { // Right Arrow
+          FullScreenPlayer.seekForward();
+        } else if (code == 13) { // Enter
+          console.log(FullScreenPlayer.togglePause);
+          FullScreenPlayer.togglePause();
+        }
+      });
+      
+    });
+  </script>
+</body>  
+</html>
