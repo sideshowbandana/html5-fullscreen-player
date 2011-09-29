@@ -3,6 +3,11 @@ HTML5 Fullscreen Player controls
 
 *For a simple example, look at demo.html*
 
+Try it out (video requires a browser that will play mp4 - chrome or safari):
+-----------
+http://boxee.github.com/html5-fullscreen-player/demo.html
+
+
 To use it:
 ----------
   * use a `<video>` tag on your page
