@@ -57,7 +57,11 @@ If there is just one video tag on your page, you can use the default options.  T
     </body>
   
     FullScreenPlayer.init();
-    
+
+
+Using a container
+--------
+
 If you don't want the `body` tag's class names changed, specify a container element that has the video tag inside of it.
 
     <body>
@@ -90,6 +94,9 @@ The default options are:
       // only need to specify this if there is more than one video tag in your container
       video: null // defaults to container.find('video').first();
     }
+
+Styling
+-------
   
 For best results, the video tag and its container should be the entire size of the browser viewport.
 
@@ -103,6 +110,7 @@ For best results, the video tag and its container should be the entire size of t
       top: 0px;
       left: 0px;
     }
+
 
 The HTML
 --------
