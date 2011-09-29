@@ -3,10 +3,24 @@ HTML5 Fullscreen Player controls
 
 *For a simple example, look at demo.html*
 
-Try it out (video requires a browser that will play mp4 - chrome or safari):
+Try it out
 -----------
+Example uses an mp4 video -- requires *chrome* or *safari* to get the video to load:
 http://boxee.github.com/html5-fullscreen-player/demo.html
 
+
+Recommended Usage:
+-----------
+The controls are intended to be used on large screen viewing, for example on a TV using the Boxee Box's browser, or any other html5 compliant browser being viewed on a TV.
+
+When users are viewing content on a TV, the one thing that most remotes have in common is the d-pad comprised of four arrow keys with an enter button in the center.
+
+The **leanback** experience, where the user is focused on the content and the level of interaction is **very minimal**, can be facilitated by setting up the following interaction model focused on the d-pad:
+
+  * Enter key - Toggles Play and Pause.
+  * Left key - Seeks in reverse
+  * Right key - Seeks forward
+  * Up/Down - access to additional options or menus of content
 
 To use it:
 ----------
@@ -15,6 +29,21 @@ To use it:
   * reference the fullscreen-player js and css files on your webpage
   * make the images available on your server, tweak the paths for your setup in fullscreen-player-urls.css
   * when the document is ready call the init function: `FullScreenPlayer.init({ ... options ... })`
+  
+
+In the `<head>`:
+  
+    <link rel="stylesheet" href="fullscreen-player.css">
+    <link rel="stylesheet" href="fullscreen-player-urls.css">
+    
+Before the `</body>`:
+
+    <!-- Place dependency script tags in page first: jQuery and underscore -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type='text/javascript' src='lib/underscore-min.js'></script>
+
+    <script type='text/javascript' src='fullscreen-player.js'></script>
+    
   
 If there is just one video tag on your page, you can use the default options.  This will result in the `body` tag being the container that gets class names such as `paused` and `seeking` set on it.
 
@@ -26,7 +55,7 @@ If there is just one video tag on your page, you can use the default options.  T
   
     FullScreenPlayer.init();
     
-If you don't want the body tag's class names changed, specify a container element that has the video tag inside of it.
+If you don't want the `body` tag's class names changed, specify a container element that has the video tag inside of it.
 
     <body>
       ...
@@ -101,23 +130,34 @@ put this html directly after your video tag, at the same level in the DOM tree. 
 API
 ======
 
-All functions are called on the global FullScreenPlayer object.  There can only be one FullScreenPlayer on a page.
+All functions are called on the global `FullScreenPlayer` object.  There can only be one `FullScreenPlayer` on a page.
 
-    FullScreenPlayer.
-    
-        setVideoTitle(title : string) // Sets the title of the video in the overlay
-        
-        loadSrc(src : string) // sets the video's src attribute and tells it to start playing
-        
-        togglePause() // Pause/Unpause video.  Should be attached to the Enter key when in a leanback mode.
-        play() // play video
-        pause() // pause video
+Initialize the FullScreenPlayer.  Must be called before anything else.
+    FullScreenPlayer.init(options)
 
-        seekForward() // seeks forward by options.seekBy seconds.  Should be attached to the Right Arrow key.
-        
-        seekReverse() // seeks back by options.seekBy seconds.  Should be attached to the Left Arrow key.
+Set the title of the video in the overlay:
+    FullScreenPlayer.setVideoTitle(title)
 
-        seekTo(time) // 
+Set the video's src and have it start playing
+    FullScreenPlayer.loadSrc(src)
+
+Toggle Paused State.  Should be attached to the Enter key when in a leanback mode.
+    FullScreenPlayer.togglePause()
+
+Play video when paused
+    FullScreenPlayer.play()
+
+Paused video when playing
+    FullScreenPlayer.pause()
+
+Seek forward by `options.seekBy` seconds.  Should be attached to the Right Arrow key.
+    FullScreenPlayer.seekForward() 
+
+Seeks back by `options.seekBy` seconds.  Should be attached to the Left Arrow key.
+    FullScreenPlayer.seekReverse() 
+
+Seek to a specific time.
+    FullScreenPlayer.seekTo(time)
 
 You can still interact directly with the video element itself:
 
