@@ -1,6 +1,8 @@
 HTML5 Fullscreen Player controls
+================================
 
 To use it:
+----------
   * use a <video> tag on your page
   * reference the js and css files on your webpage
   * make the images available, tweak the paths for your setup in fullscreen-player-urls.css
