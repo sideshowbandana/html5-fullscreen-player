@@ -144,6 +144,10 @@ Set the video's src and have it start playing
     
       FullScreenPlayer.loadSrc(src)
 
+Find out if the video is paused:
+
+      FullScreenPlayer.isPaused() // returns true or false
+
 Toggle Paused State.  Should be attached to the Enter key when in a leanback mode.
     
       FullScreenPlayer.togglePause()
@@ -180,7 +184,6 @@ You can still interact directly with the video element itself:
 Need Help?
 ----------
 Direct your questions to ray@boxee.tv
-
 
 Recommended Reading
 -------------------
