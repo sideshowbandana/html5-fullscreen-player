@@ -81,6 +81,8 @@ The default options are:
       
       container: $('body'),
       
+      buildHTML: true, // only set to false if you want to manually insert the block of HTML that defines the player (see below)
+      
       // only need to specify this if there is more than one video tag in your container
       video: null // defaults to container.find('video').first();
     }
@@ -98,8 +100,7 @@ For best results, the video tag and its container should be the entire size of t
       left: 0px;
     }
 
-
-put this html directly after your video tag, at the same level in the DOM tree.  future version will generate this for you.  you can use the classes to adjust the style of the elements from within your own stylesheet.
+Unless you specify `options.buildHTML: false` the following HTML will be appended to the container element.  If you specify not to have it appended, you can add it manually.  You can override the styles for these elements to customize how your player looks.
 
         <div class='boxee-player-osd'>
           <div class='boxee-player-title'>

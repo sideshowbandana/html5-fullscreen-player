@@ -21,6 +21,10 @@ window.FullScreenPlayer = {
     this.setVideoTime(0);
     this.setVideoDuration(0);
     
+    if (this.options.buildHTML) {
+      this.appendHTML();
+    }
+    
     FullScreenPlayer.seek = _.debounce(FullScreenPlayer.doSeek, options.seekThreshold);
   },
   
@@ -28,6 +32,7 @@ window.FullScreenPlayer = {
     seekThreshold: 500,
     seekBy: 10, // seconds, when using seekForward() or seekReverse()
     container: 'body',
+    buildHTML: true, // unless you want to add the html manually
     video: null // defaults to container.find('video').first();
   },
   
@@ -200,6 +205,37 @@ window.FullScreenPlayer = {
     this.currentTime = time;
     this.updateScrubber();
     this.seek();
+  },
+  
+  /* construct the block of html that makes up the controls */
+  
+  appendHTML: function() {
+    this.$container.append(this.buildHTML());
+  },
+  
+  d: function(className) {
+    return $("<div/>").addClass('boxee-' + className);
+  },
+  
+  buildHTML: function() {
+    var b = this;
+    return b
+      .d('player-osd')
+        .append(b.d('player-title').append(b.d('player-title-text')))
+        .append(b.d('seeking').text('Loading'))
+        .append(
+          b.d('progressbar-container')
+            .append(b.d('progressbar-elapsed-container').append(b.d('progressbar-elapsed-text')))
+            .append(b.d('progressbar-duration-container').append(b.d('progressbar-duration-text')))
+            .append(
+              b.d('progressbar').append(
+                b.d('progressbar-wrapper')
+                  .append(b.d('progressbar-buffered'))
+                  .append(b.d('progressbar-position'))
+                  .append(b.d('scrubber-container').append(b.d('scrubber')))
+              )
+            )
+        );
   }
   
 };
