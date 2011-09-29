@@ -88,9 +88,11 @@
       FullScreenPlayer.setVideoTitle(video.title);
       FullScreenPlayer.loadSrc(video.src);
       
-      // Have clicks toggle whether the osd is showing
+      // Have clicks toggle whether the osd is visible or not
       $('body').click(function() {
-        $("#video-container").find('.boxee-player-osd').toggle();
+        var $controls = $("#video-container").find('.boxee-player-osd');
+        var wasHidden = $controls.css('visibility') == 'hidden';
+        $controls.css('visibility', wasHidden ? 'visible' : 'hidden');
       });
       
       // Handle keypresses
