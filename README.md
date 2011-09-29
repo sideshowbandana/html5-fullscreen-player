@@ -11,23 +11,53 @@ To use it:
   * make the images available, tweak the paths for your setup in fullscreen-player-urls.css
   * `FullScreenPlayer.init({ ... options ... })`
   
-If there is just one video tag on your page, you can use the default options.
+If there is just one video tag on your page, you can use the default options.  This will result in the `body` tag being the container that gets class names such as `paused` and `seeking` set on it.
+
+    <body>
+      ...
+      <video id='my-video-tag'></video>
+      ...
+    </body>
   
+    FullScreenPlayer.init();
+    
+If you don't want the body tag's class names changed, specify a container element that has the video tag inside of it.
+
+    <body>
+      ...
+      <div id='my-video-container'>
+        <video id='my-video-tag'></video>
+      </div>
+    </body>
+    
+    // Now #my-video-container will have class names set on it to control the player styles
+    FullScreenPlayer.init({
+      container: $("#my-video-container")
+    });
+
+The default options are:
+
     options: {
-      seekThreshold: 500, // debounce seeking so user can click seek forward multiple times and just take the result
-      seekBy: 10, // seconds, when using seekForward() or seekReverse()
-      container: 'body',
+      // debounce seeking so user can click seek forward multiple times and just take the result
+      seekThreshold: 500, 
+      
+      // seconds to seek by, when using seekForward() or seekReverse()
+      seekBy: 10,
+      
+      container: $('body'),
+      
+      // only need to specify this if there is more than one video tag in your container
       video: null // defaults to container.find('video').first();
     }
   
 For best results, the video tag and its container should be the entire size of the browser viewport.
 
-    html, body, video, #my-video-container-selector {
+    html, body, video, #my-video-container {
       height: 100%;
       width: 100%;  
     }
 
-    video, #my-video-container-selector {
+    video, #my-video-container {
       position: absolute;
       top: 0px;
       left: 0px;
