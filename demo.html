@@ -14,6 +14,10 @@
       padding: 0px;
     }
     
+    body {
+      background-color: #000;
+    }
+    
     /* Have the video take up as much of the screen as it can */
     video {
       height: 100%;
@@ -70,9 +74,15 @@
       
       // data
       var video = {
-        src: "http://feedproxy.google.com/~r/earth-touch_podcast_720p/~5/lh3k1dhm11I/PC3411_QT720_voice.mov",
-        title: 'HD weekly wildlife highlights, week 34 2011'
+        src: "http://video.ted.com/talk/podcast/2011/Descartes/SunniBrown_2011-480p.mp4",
+        title: 'TED: Sunni Brown: Doodlers, unite! - Sunni Brown (2011)'
       }
+      
+      // can your browser play this type of video?
+      var support = FullScreenPlayer.video.canPlayType('video/mp4');
+      if (support === '') {
+        alert("Your browser cannot play this mp4 video file.  Try using Chrome or Safari");
+      } 
       
       // Set title and start playing the video
       FullScreenPlayer.setVideoTitle(video.title);
