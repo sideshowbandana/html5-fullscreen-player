@@ -133,31 +133,40 @@ API
 All functions are called on the global `FullScreenPlayer` object.  There can only be one `FullScreenPlayer` on a page.
 
 Initialize the FullScreenPlayer.  Must be called before anything else.
-    FullScreenPlayer.init(options)
+
+      FullScreenPlayer.init(options)
 
 Set the title of the video in the overlay:
-    FullScreenPlayer.setVideoTitle(title)
+    
+      FullScreenPlayer.setVideoTitle(title)
 
 Set the video's src and have it start playing
-    FullScreenPlayer.loadSrc(src)
+    
+      FullScreenPlayer.loadSrc(src)
 
 Toggle Paused State.  Should be attached to the Enter key when in a leanback mode.
-    FullScreenPlayer.togglePause()
+    
+      FullScreenPlayer.togglePause()
 
 Play video when paused
-    FullScreenPlayer.play()
+    
+      FullScreenPlayer.play()
 
 Paused video when playing
-    FullScreenPlayer.pause()
+    
+      FullScreenPlayer.pause()
 
 Seek forward by `options.seekBy` seconds.  Should be attached to the Right Arrow key.
-    FullScreenPlayer.seekForward() 
+      
+      FullScreenPlayer.seekForward() 
 
 Seeks back by `options.seekBy` seconds.  Should be attached to the Left Arrow key.
-    FullScreenPlayer.seekReverse() 
+    
+      FullScreenPlayer.seekReverse() 
 
 Seek to a specific time.
-    FullScreenPlayer.seekTo(time)
+    
+      FullScreenPlayer.seekTo(time)
 
 You can still interact directly with the video element itself:
 
