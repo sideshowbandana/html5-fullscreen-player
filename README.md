@@ -7,9 +7,9 @@ To use it:
 ----------
   * use a `<video>` tag on your page
   * include the jQuery and underscore.js libraries on your page
-  * reference the js and css files on your webpage
-  * make the images available, tweak the paths for your setup in fullscreen-player-urls.css
-  * `FullScreenPlayer.init({ ... options ... })`
+  * reference the fullscreen-player js and css files on your webpage
+  * make the images available on your server, tweak the paths for your setup in fullscreen-player-urls.css
+  * when the document is ready call the init function: `FullScreenPlayer.init({ ... options ... })`
   
 If there is just one video tag on your page, you can use the default options.  This will result in the `body` tag being the container that gets class names such as `paused` and `seeking` set on it.
 
@@ -28,6 +28,7 @@ If you don't want the body tag's class names changed, specify a container elemen
       <div id='my-video-container'>
         <video id='my-video-tag'></video>
       </div>
+      ...
     </body>
     
     // Now #my-video-container will have class names set on it to control the player styles
