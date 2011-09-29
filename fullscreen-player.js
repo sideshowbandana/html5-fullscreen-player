@@ -2,14 +2,14 @@
 window.FullScreenPlayer = {
   init: function(options) {
     _.extend(this.options, options);
-    if (options.video && !$(options.video).is("video")) {
-      options.video = null;
+    if (this.options.video && !$(this.options.video).is("video")) {
+      this.options.video = null;
     }
     
-    this.$container = $(options.container);
+    this.$container = $(this.options.container);
     
-    if (options.video) {
-      this.$video = $(options.video);
+    if (this.options.video) {
+      this.$video = $(this.options.video);
     } else {
       this.$video = this.$container.find('video').first();
     }
@@ -25,7 +25,7 @@ window.FullScreenPlayer = {
       this.appendHTML();
     }
     
-    FullScreenPlayer.seek = _.debounce(FullScreenPlayer.doSeek, options.seekThreshold);
+    FullScreenPlayer.seek = _.debounce(FullScreenPlayer.doSeek, this.options.seekThreshold);
   },
   
   options: {
@@ -181,6 +181,7 @@ window.FullScreenPlayer = {
   },
 
   doSeek: function() {
+    console.log('in doSeek ' + this.currentTime);
     if (this.currentTime !== null && this.video && this.video.duration && this.currentTime >= 0 && this.currentTime < this.video.duration) {
       this.$container.addClass('seeking');
       this.video.currentTime = this.currentTime;
