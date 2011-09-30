@@ -1,7 +1,7 @@
 HTML5 Fullscreen Player controls
 ================================
 
-*For a simple example, look at demo.html*
+**For a simple example, look at demo.html**
 
 Try it out
 -----------
